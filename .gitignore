@@ -1,0 +1,17 @@
+*.pyc
+src/website/mail/*
+src/website/local_settings.py
+src/sass/.sass-cache/*
+bin/*
+develop-eggs/*
+downloads/*
+eggs/*
+parts/*
+sys/etc/*
+sys/keys/*
+src/tmp/*
+.installed.cfg
+src/website/static/css/ie.css
+src/website/static/css/print.css
+src/website/static/css/screen.css
+src/website/static/css/screenc.css

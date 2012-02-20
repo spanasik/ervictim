@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-RU">
+
+<head>
+    <title>{% block title %}Жертвы "Единой России"{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="description" content="Сайт про политическую дискриминацию в России." />
+    <meta name="keywords" content="партия Единая Россия, дискриминация, люстрация, Путин" />
+    <meta name="robots" content="index, follow" />
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/screenc.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/static/css/print.css" type="text/css" media="print" />    
+    <!--[if lt IE 8]><link rel="stylesheet" href="/static/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="/static/css/sticky-footer.css" />
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+<div id="wrap">
+
+	<div class="container">
+		<div class="column span-24 last logo">
+		  {% comment %}<h1 id="title">
+		      <a href="/" title="Перейти на главную страницу">Жертвы "Единой России"</a>
+		  </h1>{% endcomment %}
+		  <a href="/" title="Перейти на главную страницу"><img class="logo_img" src="/static/img/logo.png" />
+		  <span class="logo_text">Жертвы "Единой России"</span>
+		  </a>
+		</div>
+		
+		<div class="column span-24 last">
+		<div id="mainNav">
+	
+	        </div>
+		</div>
+	
+	<div class="column span-24 last">
+        {% block content %}{% endblock %}
+        </div>
+
+	</div>
+
+        
+
+	
+</div>
+
+	<div id="footer" class="container">
+	    <div id="footercontent">
+	        © {% now "Y" %}, <a href="http://spanasik.habrahabr.ru/">Станислав Панасик</a>. 
+	        &nbsp;<a href="/agreement/">Условия использования</a>.
+	        <a href="http://www.startssl.com/">SSL сертификат от <img src="/static/img/startcom_secured_lock_80x15.png" border="0" alt="Защищено SSL сертификатом StartCom" title="Защищено SSL сертификатом StartCom" style="vertical-align:text-top;margin-left:5px;"></a>
+	        &nbsp;<a href="https://github.com/spanasik/ervictim"><img src="/static/img/git.png" border="0" alt="Код сайта на github." title="Код сайта на github." style="vertical-align:middle;" /></a>
+	        &nbsp;<a href="/tech_details/">Техническое описание</a>
+	        <a href="/messages/"><img src="/static/img/1px_empty.gif" /></a>
+	    </div>
+    </div>
+
+{% block end_body %}{% endblock %}
+</body>
+</html>

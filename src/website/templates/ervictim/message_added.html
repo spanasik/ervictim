@@ -1,0 +1,58 @@
+{% extends "ervictim/base.html" %}
+{% load qr_tags %}
+{% block extra_head %}
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+{% endblock %}
+{% block content %}
+<div class="column span-24 last">
+
+<h2>Сообщение сохранено</h2>
+
+<h3>Исходное сообщение</h3>
+<p class="crypto">
+{{ message|linebreaksbr }}
+</p>
+
+<h3>Зашифрованный текст</h3>
+<p class="crypto">
+{{ message_encrypted }}
+</p>
+
+<h3 class="prepend-top">
+Ключ сообщения
+</h3>
+
+<div class="span-24 last">
+<p>Очень важно сохранить или распечатать его, он понадобится вам для того, чтобы прочитать соообщение</p>
+  <p><strong>{{uuid}}{{ key }}</strong></p>
+  <p><a title="Нажмите здесь, чтобы скопировать ключ в буфер обмена" href="#" onclick='copyToClipboard("{{ uuid }}{{ key }}")'><img class="captcha" src="/static/img/copy.gif" /> Скопировать в буфер обмена</a></p>
+  <![if (!IE)|(gte IE 8)]>
+  <p>Записать в смартфон: {% with uuid|add:key as text %}{% qr_code text %}{% endwith %}</p>
+  <![endif]>
+</div>
+
+<script language="javascript">
+function copyToClipboard (text) {
+  window.prompt ("Чтобы скопировать, нажмите: Ctrl+C, Enter", text);
+}
+</script>
+
+<div class="span-24 last">
+<p class="notice">
+Вы не сможете прочитать своё сообщение, если утратите этот ключ.
+</p>
+
+<h3 class="prepend-top">
+<a title="перейти к чтению сообщения" href="/read">Если вы записали или сохранили ключ, можете попробовать прочитать сообщение.</a>
+</h3>
+
+<br /><br /><br /><br /><br /><br />
+</div>
+
+
+
+</div>
+
+{% endblock %}

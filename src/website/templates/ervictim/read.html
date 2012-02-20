@@ -1,0 +1,60 @@
+{% extends "ervictim/base.html" %}
+{% block extra_head %}
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery.validVal-3.1.2-packed.js" type="text/javascript"></script>
+
+{% endblock %}
+{% block content %}
+<h2>Прочитать сообщение</h2>
+<p>
+Пожалуйста, введите ключ сообщения
+</p>
+
+<form id="read_information_form" action="." method="post">{% csrf_token %}
+
+<div class="span-24 last">
+  <div class="span-10 label_border">
+    <p class="label{% if form.victim_name.errors %} red{% endif %}">Ключ</p>
+  </div>
+  <div class="span-14 last">
+      {{form.key}}
+  </div>
+</div>
+
+<div class="span-24 last">
+  <div class="span-10 label_border">
+    <p class="label{% if form.captcha.errors %} red{% endif %}">Введите латинские буквы с картинки</p>
+  </div>
+  <div class="span-14 last">
+    {{ form.captcha }}
+  </div>
+</div>
+
+<div class="span-24 last">
+  <div class="span-10">
+    <p class="label">&nbsp;</p>
+  </div>
+  <div class="span-14 last"><input type="submit" class="submit" value="Отправить"/></div>
+</div>
+
+
+</form>
+
+<div class="span-24 last">
+<p style="margin-bottom: 5em;"><br /><br /><br /></p>
+</div>
+
+{% endblock %}
+
+{% block end_body %}
+<script type="text/javascript">
+    
+$(document).ready(function(){
+    $('#id_key').toggleClass('required').toggleClass('autofocus').attr('message','введите ключ сообщения');
+    $('#id_captcha_1').toggleClass('required').attr('message','введите буквы с картинки');
+    $("#read_information_form").validVal({
+	invalidFormFunc: function( field_arr, language ) {alert( "Пожалуйста, " + field_arr[ 0 ].attr( "message" ) );}
+    });
+});  
+</script>
+{% endblock %}

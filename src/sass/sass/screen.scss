@@ -1,0 +1,121 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/_base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// @import "blueprint/liquid";
+
+// Generate the blueprint framework according to your configuration:
+@include blueprint;
+
+.center { text-align: center; }
+.left {text-align: left; }
+
+
+/* Links */
+
+a:link,
+a:visited{
+  color: #9C8A6A;
+  text-decoration: none;
+}
+a:hover,
+a:active{
+  color: #3E372B;
+  text-decoration: underline;
+}
+
+
+#title { text-align: center; }
+
+.logo {
+  a:link,
+  a:visited,
+  a:hover,
+  a:active{
+    color: #000;
+    text-decoration: none;
+  }
+  margin-bottom: 2em;
+}
+
+.logo_img { vertical-align:middle; }
+
+.logo_text {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: Times;
+  font-style:italic;
+  margin-left: 1em;
+  color: #666666;
+}
+
+//.intro { text-align: justify; }
+
+h1{
+  margin: 10px 0 20px;
+  font-size: 3.3em;
+  font-weight: bold;
+  font-family: Times;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  word-spacing: .2em;
+}
+h1 a:link,
+h1 a:visited{
+  color: #000;
+}
+h1 a:hover,
+h1 a:active{
+  color: #000;
+  text-decoration: none;
+}
+
+blockquote p {
+  font-size: 1.2em;
+  float: left;
+  margin: 0;
+}
+
+blockquote {
+  font-size: 1.2em;
+  margin: 0;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+cite {
+  font-size: 1.2em;
+  float: right;
+  padding-right: 2em;
+  padding-top: 1em;
+}
+
+#footercontent {text-align: center; }
+
+.label {font-size:1em;  margin: 0.5em 0;}
+.label_border {border-bottom: dashed 1px gray;}
+.big_button {text-size:1.4em;margin-top:2em;}
+img.captcha {vertical-align: bottom;}
+.error_input {border: 1px solid red;}
+.red {color: red;}
+.submit {font-size: 1.2em; padding: .5em 2em .5em 2em; margin-top:1em;}
+.crypto {
+  background-color:black;
+  color:white;
+  font-family:monospace;
+  font-size:1.125em;
+  padding: .5em;
+}

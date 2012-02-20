@@ -1,0 +1,87 @@
+{% extends "ervictim/base.html" %}
+{% block extra_head %}
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery.validVal-3.1.2-packed.js" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+<h2>Добавить сообщение на сайт</h2>
+<p>
+Ваше соединение с сайтом <a href="http://ru.wikipedia.org/wiki/HTTPS">зашифровано</a>. Убедитесь - адрес сайта должен начинаться с https://<br />
+Информация, введённая на форме, будет немедленно зашифрована, ключ будет выдан только вам.
+</p>
+
+<form id="add_information_form" action="." method="post">{% csrf_token %}
+
+<div class="span-24 last">
+  <div class="span-10 label_border">
+    <p class="label{% if form.victim_name.errors %} red{% endif %}">Ваше имя</p>
+  </div>
+  <div class="span-14 last">
+      {{form.victim_name}}
+  </div>
+</div>
+
+
+<div class="span-24 last">
+  <div class="span-10 label_border">
+    <p class="label{% if form.offender_name.errors %} red{% endif %}">Имя человека, который нарушил ваши права</p>
+  </div>
+  <div class="span-14 last">{{form.offender_name}}</div>
+</div>
+
+<div class="span-24 last">
+  <div class="span-10">
+    <p class="label{% if form.event.errors %} red{% endif %}">
+    Опишите ситуацию, в которой это произошло<br />(время, место, обстоятельства).
+    <br />Чего от вас добивались, чем угрожали?
+    <br /><small>(пожалуйста, не используйте в тексте интернет-ссылки)</small>
+    </p>
+  </div>
+  <div class="span-14 last">{{form.event}}</div>
+</div>
+
+
+<div class="span-24 last">
+  <div class="span-10 label_border">
+    <p class="label{% if form.captcha.errors %} red{% endif %}">Введите латинские буквы с картинки</p>
+  </div>
+  <div class="span-14 last">
+    {{ form.captcha }}
+  </div>
+</div>
+
+<div class="span-24 last">
+  <div class="span-10">
+    <p class="label">&nbsp;</p>
+  </div>
+  <div class="span-14 last"><input type="submit" class="submit" value="Отправить"/></div>
+</div>
+
+
+</form>
+
+<div class="span-24 last">
+<p style="margin-bottom: 5em;"><br /><br /><br /></p>
+</div>
+
+{% endblock %}
+
+{% block end_body %}
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('#id_victim_name').toggleClass('required').toggleClass('autofocus').attr('message','введите ваше имя');
+    $('#id_offender_name').toggleClass('required').attr('message','введите имя человека, который нарушил ваши права');
+    $('#id_event').toggleClass('required max4096').attr('message','опишите ситуацию, в которой это произошло (максимум 4096 символов)');
+    $('#id_captcha_1').toggleClass('required').attr('message','введите латинские буквы с картинки');
+    $("#add_information_form").validVal({
+	customValidations: {
+		"max4096": function( val ) {
+			return val.length <= 4096;
+		}
+	},
+        invalidFormFunc: function( field_arr, language ) {alert( "Пожалуйста, " + field_arr[ 0 ].attr( "message" ) );}
+    });
+});
+</script>
+{% endblock %}

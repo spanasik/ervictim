@@ -1,0 +1,2 @@
+#!/bin/bash
+mysqldump ervictim ervictim_message | gzip > ${buildout:directory}/src/website/static/ervictim.sql.gz;

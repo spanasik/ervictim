@@ -1,0 +1,2 @@
+#!/bin/bash
+src/cssmin.py < src/sass/stylesheets/screen.css > src/sass/stylesheets/screenc.css

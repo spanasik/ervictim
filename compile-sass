@@ -1,0 +1,3 @@
+#!/bin/bash
+bin/compass compile src/sass
+website/bin/cssmin.py < sass/stylesheets/screen.css > sass/stylesheets/screenc.css

@@ -1,0 +1,5 @@
+{% load pytils_dt %}Дата: {{ cdate|ru_strftime:"%d %B %Y, %A" }}
+Имя заявителя: {{ victim_name }}
+Имя того, кто нарушил права заявителя: {{ offender_name }}
+Что произошло: 
+{{ event }}
