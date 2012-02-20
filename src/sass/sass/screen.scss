@@ -119,3 +119,15 @@ img.captcha {vertical-align: bottom;}
   font-size:1.125em;
   padding: .5em;
 }
+.custom-tweet-button a {
+  display: block;
+  padding-left: 15px;
+  padding-right: 10px;
+  background: url("/static/img/twitter.gif") left center no-repeat;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  margin-bottom: 16px;
+  margin-right: 5px;
+  margin-top: 10px;
+  font-size: 1em;
+}
